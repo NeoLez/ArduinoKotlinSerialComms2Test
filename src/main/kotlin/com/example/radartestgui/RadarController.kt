@@ -1,14 +1,9 @@
 package com.example.radartestgui
 
-import javafx.animation.FadeTransition
 import javafx.fxml.FXML
 import javafx.scene.image.ImageView
 import javafx.scene.layout.Pane
-import javafx.scene.layout.StackPane
-import javafx.scene.paint.Color
 import javafx.scene.shape.Circle
-import javafx.stage.Stage
-import javafx.util.Duration
 import kotlin.math.cos
 import kotlin.math.sin
 

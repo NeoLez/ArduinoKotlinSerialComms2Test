@@ -6,7 +6,6 @@ import javafx.application.Platform
 import javafx.fxml.FXMLLoader
 import javafx.scene.Scene
 import javafx.scene.layout.Pane
-import javafx.scene.layout.StackPane
 import javafx.stage.Stage
 import java.util.*
 import kotlin.random.Random
@@ -53,10 +52,5 @@ class App : Application() {
 
     fun open(){
         launch()
-    }
-
-    fun receiveData(det : Deteccion){
-        println("RC $radarController")
-        radarController!!.displayReading(det)
     }
 }

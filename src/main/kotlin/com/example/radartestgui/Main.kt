@@ -1,8 +1,6 @@
 package com.example.radartestgui
 
 import com.fazecast.jSerialComm.SerialPort
-import javafx.application.Application
-import java.util.*
 
 val TAMANIO_PAQUETE = 6
 
@@ -17,7 +15,7 @@ fun main() {
             println(Deteccion.fromByteArray2(byteArray))//PROBAR CON LOS CUATRO POSIBLES METODOS A VER CUAL FUNCIONA
         }
     }*/
-    var app : App? = null;
+    var app : App?
     val appThread = Thread(){
         app = App()
         app!!.open()
