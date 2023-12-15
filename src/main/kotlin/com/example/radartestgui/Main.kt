@@ -13,12 +13,9 @@ fun main() {
             println(Deteccion.fromByteArray2(byteArray))//PROBAR CON LOS CUATRO POSIBLES METODOS A VER CUAL FUNCIONA
         }
     }*/
-    var app : App?
-    val appThread = Thread(){
-        app = App()
-        app!!.open()
-    }
-    appThread.start()
+    val app = App()
+    app.open()
+
 }
 
 private fun printPorts(){
