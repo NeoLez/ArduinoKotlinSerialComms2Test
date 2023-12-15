@@ -5,6 +5,7 @@ import java.nio.ByteBuffer
 class Deteccion(val angulo: Short, val distancia : Float) {
 
     companion object{
+        val TAMANIO_PAQUETE = 6
         fun fromByteArray1(array: ByteArray) : Deteccion{
             val buf = ByteBuffer.wrap(array)
             val angulo = buf.getShort()

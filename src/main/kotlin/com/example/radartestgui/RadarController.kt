@@ -14,7 +14,7 @@ class RadarController : Pane() {
     lateinit var circle : Circle
 
     fun displayReading(reading : Deteccion){
-        println(reading)
+        //println(reading)
 
         //val fadeTransition = FadeTransition(Duration(5000.0), circle)
 
@@ -23,8 +23,5 @@ class RadarController : Pane() {
 
         circle.layoutX = y*250+300
         circle.layoutY = x*-250+300
-
-        for(c in children)
-            println(c)
     }
 }

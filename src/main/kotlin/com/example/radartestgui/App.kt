@@ -12,10 +12,7 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 class App : Application() {
-    var radarController : RadarController? = null
-    fun getController() : RadarController?{
-        return radarController
-    }
+    //var radarController : RadarController? = null
     override fun start(stage: Stage) {
         val loader = FXMLLoader()
         val root = loader.load(
@@ -24,7 +21,7 @@ class App : Application() {
 
         val scene = Scene(root, 600.0, 600.0)
 
-        radarController = loader.getController()
+        val radarController : RadarController = loader.getController()
 
         stage.isResizable = false
         stage.title = "Hello!"
@@ -37,17 +34,21 @@ class App : Application() {
             override fun run() {
                 Platform.runLater {
                     val port = SerialPort.getCommPort("COM1")//ACA VA EL NOMBRE DEL PUERTO
-                    if(port.bytesAvailable()>=TAMANIO_PAQUETE) {//SI HAY 6 BYTES PARA LEER
-                        val byteArray = ByteArray(TAMANIO_PAQUETE)
-                        port.readBytes(byteArray, TAMANIO_PAQUETE)
+                    port.openPort()
+                    if(port.bytesAvailable()>=Deteccion.TAMANIO_PAQUETE) {//SI HAY 6 BYTES PARA LEER
+                        val byteArray = ByteArray(Deteccion.TAMANIO_PAQUETE)
+                        port.readBytes(byteArray, Deteccion.TAMANIO_PAQUETE)
 
-                        //radarController!!.displayReading(Deteccion.fromByteArray2(byteArray))
+                        //radarController.displayReading(Deteccion.fromByteArray2(byteArray))//CAMBIAR EL NUMERO DE METODO SI NO FUNCIONA
                     }
-                    radarController!!.displayReading(Deteccion(Random.nextInt(0..360).toShort(),Random.nextFloat()))
+                    radarController.displayReading(Deteccion(Random.nextInt(0..360).toShort(),Random.nextFloat()))
+                    port.closePort()
                 }
             }
         }
-        Timer().scheduleAtFixedRate(task, 0, 2000)
+
+
+        Timer().scheduleAtFixedRate(task, 0, 15)
     }
 
     fun open(){

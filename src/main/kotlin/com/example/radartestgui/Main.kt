@@ -2,8 +2,6 @@ package com.example.radartestgui
 
 import com.fazecast.jSerialComm.SerialPort
 
-val TAMANIO_PAQUETE = 6
-
 fun main() {
     //test()
     /*val port = SerialPort.getCommPort("COM1")//ACA VA EL NOMBRE DEL PUERTO
