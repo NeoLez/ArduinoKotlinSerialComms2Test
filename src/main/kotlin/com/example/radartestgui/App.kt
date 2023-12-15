@@ -12,7 +12,6 @@ import kotlin.random.Random
 import kotlin.random.nextInt
 
 class App : Application() {
-    //var radarController : RadarController? = null
     override fun start(stage: Stage) {
         val loader = FXMLLoader()
         val root = loader.load(
@@ -20,11 +19,10 @@ class App : Application() {
         ) as Pane
 
         val scene = Scene(root, 600.0, 600.0)
-
         val radarController : RadarController = loader.getController()
 
         stage.isResizable = false
-        stage.title = "Hello!"
+        stage.title = "Radar"
         stage.scene = scene
         stage.show()
 
@@ -39,14 +37,13 @@ class App : Application() {
                         val byteArray = ByteArray(Deteccion.TAMANIO_PAQUETE)
                         port.readBytes(byteArray, Deteccion.TAMANIO_PAQUETE)
 
-                        //radarController.displayReading(Deteccion.fromByteArray2(byteArray))//CAMBIAR EL NUMERO DE METODO SI NO FUNCIONA
+                        radarController.displayReading(Deteccion.fromByteArray2(byteArray))//CAMBIAR EL NUMERO DE METODO SI NO FUNCIONA
                     }
-                    radarController.displayReading(Deteccion(Random.nextInt(0..360).toShort(),Random.nextFloat()))
+                    //radarController.displayReading(Deteccion(Random.nextInt(0..360).toShort(),Random.nextFloat()))
                     port.closePort()
                 }
             }
         }
-
 
         Timer().scheduleAtFixedRate(task, 0, 15)
     }

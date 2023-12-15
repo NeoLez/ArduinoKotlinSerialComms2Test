@@ -6,7 +6,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.radartestgui.RadarController">
    <children>
-      <ImageView fx:id="imageView" fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
          <Image url="@/com/example/radartestgui/radar.png"/>
       </ImageView>
       <Circle fx:id="circle" fill="#ba2c2c" layoutX="300.0" layoutY="300.0" radius="10.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />

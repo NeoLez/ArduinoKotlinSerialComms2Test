@@ -9,15 +9,9 @@ import kotlin.math.sin
 
 class RadarController : Pane() {
     @FXML
-    lateinit var imageView : ImageView
-    @FXML
     lateinit var circle : Circle
 
     fun displayReading(reading : Deteccion){
-        //println(reading)
-
-        //val fadeTransition = FadeTransition(Duration(5000.0), circle)
-
         val x = reading.distancia * cos(Math.toRadians(reading.angulo.toDouble()))
         val y = reading.distancia * sin(Math.toRadians(reading.angulo.toDouble()))
 

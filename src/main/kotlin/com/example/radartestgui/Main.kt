@@ -3,19 +3,8 @@ package com.example.radartestgui
 import com.fazecast.jSerialComm.SerialPort
 
 fun main() {
-    //test()
-    /*val port = SerialPort.getCommPort("COM1")//ACA VA EL NOMBRE DEL PUERTO
-    while(true){
-        if(port.bytesAvailable()>=TAMANIO_PAQUETE) {//SI HAY 6 BYTES PARA LEER
-            val byteArray = ByteArray(TAMANIO_PAQUETE)
-            port.readBytes(byteArray, TAMANIO_PAQUETE)
-
-            println(Deteccion.fromByteArray2(byteArray))//PROBAR CON LOS CUATRO POSIBLES METODOS A VER CUAL FUNCIONA
-        }
-    }*/
     val app = App()
     app.open()
-
 }
 
 private fun printPorts(){
@@ -26,7 +15,7 @@ private fun printPorts(){
     }
 }
 
-private fun test(){
+/*private fun test(){
     val byteArray1 = ByteArray(6)
     byteArray1[0]= 0//INT
     byteArray1[1]= -104
@@ -49,4 +38,4 @@ private fun test(){
     val d2 = Deteccion.fromByteArray2(byteArray2)
     println(d1)
     println(d2)
-}
+}*/
