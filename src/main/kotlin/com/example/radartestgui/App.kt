@@ -8,8 +8,6 @@ import javafx.scene.Scene
 import javafx.scene.layout.Pane
 import javafx.stage.Stage
 import java.util.*
-import kotlin.random.Random
-import kotlin.random.nextInt
 
 class App : Application() {
     override fun start(stage: Stage) {
@@ -27,17 +25,18 @@ class App : Application() {
         stage.show()
 
 
-
+        val port = SerialPort.getCommPort("COM1")//ACA VA EL NOMBRE DEL PUERTO
+        port.openPort()
         val task = object : TimerTask() {
             override fun run() {
                 Platform.runLater {
-                    val port = SerialPort.getCommPort("COM1")//ACA VA EL NOMBRE DEL PUERTO
-                    port.openPort()
                     if(port.bytesAvailable()>=Deteccion.TAMANIO_PAQUETE) {//SI HAY 6 BYTES PARA LEER
                         val byteArray = ByteArray(Deteccion.TAMANIO_PAQUETE)
                         port.readBytes(byteArray, Deteccion.TAMANIO_PAQUETE)
 
                         radarController.displayReading(Deteccion.fromByteArray2(byteArray))//CAMBIAR EL NUMERO DE METODO SI NO FUNCIONA
+                    }else{
+                        radarController.startFade()
                     }
                     //radarController.displayReading(Deteccion(Random.nextInt(0..360).toShort(),Random.nextFloat()))
                     port.closePort()
