@@ -39,7 +39,6 @@ class App : Application() {
                         radarController.startFade()
                     }
                     //radarController.displayReading(Deteccion(30.toShort(),500.0f))
-                    port.closePort()
                 }
             }
         }
