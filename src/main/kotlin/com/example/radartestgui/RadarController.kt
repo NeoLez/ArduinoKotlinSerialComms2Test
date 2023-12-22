@@ -12,7 +12,8 @@ class RadarController : Pane() {
     @FXML
     lateinit var circle : Circle
     private val MAX_DIST = 500
-    private val TAMANIO_INTERFAZ=600
+    private val TAMANIO_INTERFAZ_MAX=600
+    private val TAMANIO_INTERFAZ_INT=500
     private var fade : FadeTransition? = null
     private var shouldFade = false
 
@@ -30,8 +31,8 @@ class RadarController : Pane() {
         }
 
         circle.opacity = 1.0
-        circle.layoutX = (y*(TAMANIO_INTERFAZ/(2*MAX_DIST)))+(TAMANIO_INTERFAZ/2)
-        circle.layoutY = -(x*(TAMANIO_INTERFAZ/(2*MAX_DIST)))+(TAMANIO_INTERFAZ/2)
+        circle.layoutX = (y*(TAMANIO_INTERFAZ_INT/(2.0*MAX_DIST)))+(TAMANIO_INTERFAZ_MAX/2)
+        circle.layoutY = -(x*(TAMANIO_INTERFAZ_INT/(2.0*MAX_DIST)))+(TAMANIO_INTERFAZ_MAX/2)
     }
 
     fun startFade(){
