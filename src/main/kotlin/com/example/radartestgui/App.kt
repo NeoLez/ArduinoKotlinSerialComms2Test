@@ -34,7 +34,7 @@ class App : Application() {
                         val byteArray = ByteArray(Deteccion.TAMANIO_PAQUETE)
                         port.readBytes(byteArray, Deteccion.TAMANIO_PAQUETE)
 
-                        radarController.displayReading(Deteccion.fromByteArray2(byteArray))//CAMBIAR EL NUMERO DE METODO SI NO FUNCIONA
+                        radarController.displayReading(Deteccion.fromByteArray4(byteArray))//CAMBIAR EL NUMERO DE METODO SI NO FUNCIONA
                     }else{
                         radarController.startFade()
                     }
