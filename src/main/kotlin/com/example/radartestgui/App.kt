@@ -16,7 +16,7 @@ class App : Application() {
             javaClass.getResourceAsStream("radar.fxml")
         ) as Pane
 
-        val scene = Scene(root, 600.0, 600.0)
+        val scene = Scene(root, 900.0, 600.0)
         val radarController : RadarController = loader.getController()
 
         stage.isResizable = false
@@ -25,20 +25,18 @@ class App : Application() {
         stage.show()
 
 
-        val port = SerialPort.getCommPort("COM1")//ACA VA EL NOMBRE DEL PUERTO
-        port.openPort()
         val task = object : TimerTask() {
             override fun run() {
                 Platform.runLater {
-                    if(port.bytesAvailable()>=Deteccion.TAMANIO_PAQUETE) {//SI HAY 6 BYTES PARA LEER
+                    if(PORT.bytesAvailable()>=Deteccion.TAMANIO_PAQUETE) {//SI HAY 6 BYTES PARA LEER
                         val byteArray = ByteArray(Deteccion.TAMANIO_PAQUETE)
-                        port.readBytes(byteArray, Deteccion.TAMANIO_PAQUETE)
+                        PORT.readBytes(byteArray, Deteccion.TAMANIO_PAQUETE)
 
                         radarController.displayReading(Deteccion.fromByteArray4(byteArray))//CAMBIAR EL NUMERO DE METODO SI NO FUNCIONA
                     }else{
                         radarController.startFade()
                     }
-                    //radarController.displayReading(Deteccion(30.toShort(),500.0f))
+                    radarController.displayReading(Deteccion(30.toShort(),200.0f))
                 }
             }
         }

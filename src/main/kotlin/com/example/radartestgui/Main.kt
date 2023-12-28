@@ -2,7 +2,10 @@ package com.example.radartestgui
 
 import com.fazecast.jSerialComm.SerialPort
 
+val PORT = SerialPort.getCommPort("COM1")
+
 fun main() {
+    PORT.openPort()
     val app = App()
     app.open()
 }
