@@ -6,7 +6,6 @@ import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.image.ImageView
 import javafx.scene.layout.Pane
-import javafx.scene.shape.Circle
 import javafx.util.Duration
 import java.text.DecimalFormat
 import kotlin.math.cos
@@ -27,7 +26,7 @@ class RadarController : Pane() {
     lateinit var button : Button
 
     private val MAX_DIST = 240
-    private val MAX_DIST_PIXELS = 300
+    private val MAX_DIST_PIXELS = 380
     private val CENTER_X = 450
     private val CENTER_Y = 450
     private var fade : FadeTransition? = null
@@ -48,8 +47,8 @@ class RadarController : Pane() {
             fade!!.stop()
             shouldFade = false
         }
-
         detectionPoint.opacity = 1.0
+
         detectionPoint.layoutX = (x*MAX_DIST_PIXELS/MAX_DIST) + CENTER_X - detectionPoint.boundsInParent.width/2
         detectionPoint.layoutY = (-y*MAX_DIST_PIXELS/MAX_DIST) + CENTER_Y - detectionPoint.boundsInParent.height/2
     }
@@ -64,7 +63,8 @@ class RadarController : Pane() {
         }
     }
 
-    var buttonState = false
+
+    private var buttonState = false
     @FXML
     fun onButtonPressed(){
         if(buttonState)

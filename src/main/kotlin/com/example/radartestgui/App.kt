@@ -1,6 +1,5 @@
 package com.example.radartestgui
 
-import com.fazecast.jSerialComm.SerialPort
 import javafx.application.Application
 import javafx.application.Platform
 import javafx.fxml.FXMLLoader
@@ -36,7 +35,7 @@ class App : Application() {
                     }else{
                         radarController.startFade()
                     }
-                    radarController.displayReading(Deteccion(30.toShort(),200.0f))
+                    //radarController.displayReading(Deteccion(30.toShort(),200.0f))
                 }
             }
         }

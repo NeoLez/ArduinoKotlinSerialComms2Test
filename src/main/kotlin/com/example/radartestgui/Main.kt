@@ -2,7 +2,7 @@ package com.example.radartestgui
 
 import com.fazecast.jSerialComm.SerialPort
 
-val PORT = SerialPort.getCommPort("COM1")
+val PORT = SerialPort.getCommPort("COM1")//CAMBIAR EL PUERTO ACA
 
 fun main() {
     PORT.openPort()
